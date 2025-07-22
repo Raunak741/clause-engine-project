@@ -24,8 +24,13 @@ const semanticSearch = (chunks, query) => {
 
 // Function to call the Gemini API for analysis
 const getDecisionFromLLM = async (query, contextChunks) => {
-    // NOTE: When running locally, you must provide your own API key here.
-    const apiKey = "AIzaSyAV3dAzDDjrFLj7pTaXsrRn6cbRhFVRB_k"; // Leave blank for the Canvas environment.
+    // This is the secure way to access your API key from the .env file in a Vite project.
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    
+    if (!apiKey) {
+        throw new Error("API key not found. Please ensure you have a .env file in the project root with the line: VITE_GEMINI_API_KEY=YOUR_KEY_HERE");
+    }
+
     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
     const prompt = `
