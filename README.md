@@ -1,4 +1,4 @@
-**Clause-to-Conclusion Engine**
+## Clause-to-Conclusion Engine
 This project is an AI-powered document analysis tool that processes large, unstructured documents (like insurance policies) and answers natural language queries about them. It leverages a Large Language Model (LLM) to understand the user's question, find relevant clauses in the document, and generate a structured, justified decision.
 
 ## Features
